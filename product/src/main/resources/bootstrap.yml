@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: product
+  rabbitmq:
+    host: 192.168.99.100
+    port: 5672
+    username: root
+    password: 123456
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: CONFIG
+      profile: dev
+    stream:
+      binders:
+        output:
+          content-type: application/json
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8768/eureka/
+server:
+  port: 8081

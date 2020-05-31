@@ -1,0 +1,20 @@
+spring:
+    rabbitmq:
+      host: 192.168.99.100
+      port: 5672
+      username: root
+      password: 123456
+zuul:
+  routes:
+    # 可随意明明
+    a:
+      path: /myproduct/**
+      seviceId: product
+      sensitiveHeaders:      #敏感头的过滤
+    #简洁写法
+    # product: /myproduct/**
+  # 不被网关管理的路径
+  ignored-patterns:
+    - /product/env/print
+    - /myproduct/env/print
+  #  prefix:    统一前缀

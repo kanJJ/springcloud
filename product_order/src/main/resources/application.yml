@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: product_order
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: mysql
+    url: jdbc:mysql://localhost:3306/spring_cloud?characterEncoding=utf-8&useSSL=false
+  jpa:
+    show-sql: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8768/eureka
+server:
+  port: 8890
+feign:
+  hystrix:
+    enabled: true
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000
+    getProductList:
+          execution:
+            isolation:
+              thread:
+                timeoutInMilliseconds: 1000
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream

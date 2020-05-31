@@ -1,0 +1,32 @@
+spring:
+  cloud:
+    config:
+      discovery:
+        enabled: true
+      server:
+        git:
+          uri: https://github.com/kanJJ/springcloud/
+          username: username
+          password: password
+          basedir: D:/workplace/ideawork/springcloud/config/basedir/
+
+  application:
+    name: CONFIG
+  rabbitmq:
+    host: 192.168.99.100
+    port: 5672
+    username: root
+    password: 123456
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8768/eureka/
+server:
+  port: 9002
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  cloudfoundry:
+    enabled: false
